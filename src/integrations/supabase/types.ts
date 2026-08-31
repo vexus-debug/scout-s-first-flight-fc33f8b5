@@ -14,6 +14,119 @@ export type Database = {
   }
   public: {
     Tables: {
+      loopline_execution_legs: {
+        Row: {
+          average_price: number | null
+          created_at: string
+          error_message: string | null
+          filled_quantity: number | null
+          from_coin: string
+          id: string
+          order_id: string | null
+          requested_quantity: number | null
+          run_id: string
+          sequence: number
+          side: string
+          status: string
+          symbol: string
+          to_coin: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          average_price?: number | null
+          created_at?: string
+          error_message?: string | null
+          filled_quantity?: number | null
+          from_coin: string
+          id?: string
+          order_id?: string | null
+          requested_quantity?: number | null
+          run_id: string
+          sequence: number
+          side: string
+          status?: string
+          symbol: string
+          to_coin: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          average_price?: number | null
+          created_at?: string
+          error_message?: string | null
+          filled_quantity?: number | null
+          from_coin?: string
+          id?: string
+          order_id?: string | null
+          requested_quantity?: number | null
+          run_id?: string
+          sequence?: number
+          side?: string
+          status?: string
+          symbol?: string
+          to_coin?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "loopline_execution_legs_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "loopline_execution_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      loopline_execution_runs: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          failure_reason: string | null
+          id: string
+          idempotency_key: string
+          mode: string
+          requested_amount: number
+          route: Json
+          start_coin: string
+          started_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          failure_reason?: string | null
+          id?: string
+          idempotency_key: string
+          mode: string
+          requested_amount: number
+          route?: Json
+          start_coin: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          failure_reason?: string | null
+          id?: string
+          idempotency_key?: string
+          mode?: string
+          requested_amount?: number
+          route?: Json
+          start_coin?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       loopline_scanner_cron_secret: {
         Row: {
           created_at: string
